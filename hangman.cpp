@@ -1,4 +1,7 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
+#include <cctype>
 
 using namespace std;
 
@@ -7,9 +10,9 @@ int main()
 	string words[4] = { "Regen", "Blitz", "Tornado", "Sturm" }; // ! problem: always returns blitz
 	string guessedLetters = "";
 	int falseInputs;
-	string input;
+	//char input;
 
-	int amountOfWords = sizeof(words) / sizeof(words[0]); // 160 Bytes / 40 Bytes pro String = 4 x 40 bytes = 160bytes) | string = 40 bytes
+	int amountOfWords = sizeof(words) / sizeof(words[0]); // 160 Bytes / 40 Bytes pro String = 4 x 40 bytes = 160bytes) | string = 40 bytesdh.
 	string randomWord = words[rand() % amountOfWords];	  // rand(); = random number 0 - 32767
 
 	string* wordArray = new string[randomWord.size()]; // * pointer to dynamic string array in RAM & 
@@ -24,6 +27,7 @@ int main()
 	}
 	while (true)
 	{
+		char input;
 		for (int i = 0; i < randomWord.size(); i++) {
 			cout << UserGuesses[i];
 		}
@@ -33,8 +37,8 @@ int main()
 
 		for (int i = 0; i < randomWord.size(); i++) {
 
-			if (wordArray[i] == ) { // todo: to lower func & toUpper
-				UserGuesses[i] = input;
+			if (tolower(wordArray[i][0]) == tolower(input)) { // todo: to lower func & toUpper
+				UserGuesses[i] = wordArray[i];		// problem: after 2 letters it stops adding right ones
 			}
 			system("cls");
 
@@ -45,6 +49,5 @@ int main()
 		}
 		
 	}
-
 	return 0;
 } 
