@@ -9,6 +9,7 @@ int main()
 {
 	string words[4] = { "Regen", "Blitz", "Tornado", "Sturm" }; // ! problem: always returns blitz
 	string guessedLetters = "";
+	bool answer;
 	int falseInputs;
 	//char input;
 
@@ -17,7 +18,6 @@ int main()
 
 	string* wordArray = new string[randomWord.size()]; // * pointer to dynamic string array in RAM & 
 	string* UserGuesses = new string[randomWord.size()];
-
 	cout << randomWord << endl;
 
 	for (int i = 0; i < randomWord.size(); i++) { // move characters from string to dynamic array
@@ -37,15 +37,17 @@ int main()
 
 		for (int i = 0; i < randomWord.size(); i++) {
 
-			if (tolower(wordArray[i][0]) == tolower(input)) { // todo: to lower func & toUpper
-				UserGuesses[i] = wordArray[i];		// problem: after 2 letters it stops adding right ones
+			if ((tolower(wordArray[i][0])) == (tolower(input))) { 
+				UserGuesses[i] = wordArray[i];						  
 			}
 			system("cls");
-
-			if (wordArray[i] == UserGuesses[i]) { // exit loop
-				break;
+			/*
+			for (int i = 0; i < n - 1; i++)
+			{
+				if (array[i] != array[i + 1])
+					flag = 1;
 			}
-
+			*/
 		}
 		
 	}
